@@ -6,6 +6,7 @@ import { Project } from 'ts-morph';
 const testFileTypeKeyValues = (file: string, type: string) => {
   const project = new Project({
     tsConfigFilePath: path.join(__dirname, './tsconfig.json'),
+    // compilerOptions: { include: [path.join(__dirname, 'index.ts')] },
   });
   const indexTs = project.getSourceFile(file);
   const typeAlias = indexTs.getTypeAliasOrThrow(type);
