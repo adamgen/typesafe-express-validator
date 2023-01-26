@@ -1,4 +1,5 @@
 import { ExpressValidatorToSchema } from '../lib/ExpressValidatorToSchema';
+import { Schema } from 'express-validator';
 const schema = {
   name: {
     in: 'body',
@@ -14,7 +15,6 @@ const schema = {
     optional: true,
   },
   'resource_tag_ids.*': {
-    isNumber: true,
     in: 'body',
     isInt: true,
     optional: true,
@@ -38,4 +38,10 @@ const schema = {
   },
 } as const;
 
-type mySchema = ExpressValidatorToSchema<typeof schema>;
+type TypeofSchema = typeof schema;
+
+// export type ExpressValidatorToSchema<T extends Schema> = {
+//   [key in keyof RawSchema<T>]: RawSchema<T>[key];
+// };
+
+type mySchema = ExpressValidatorToSchema<TypeofSchema >;
