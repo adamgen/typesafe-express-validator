@@ -16,8 +16,8 @@ describe('schema to ts', () => {
       name: 'string',
       id: 'number',
       resource_tag_ids: 'number[]',
-      rsa_private: 'unknown',
-      rsa_public: 'unknown',
+      rsa_private: 'string',
+      rsa_public: 'string',
     });
 
     expect(

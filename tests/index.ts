@@ -20,12 +20,14 @@ const schema = defineSchema({
     optional: true,
   },
   rsa_private: {
+    isString: true,
     in: 'body',
     exists: {
       negated: true,
     },
   },
   rsa_public: {
+    isString: true,
     in: 'body',
     custom: {
       options: (rsa_public) => true,
