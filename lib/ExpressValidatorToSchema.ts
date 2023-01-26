@@ -44,5 +44,4 @@ export type ExpressValidatorToSchema<T extends Schema> = {
 
 export const defineSchema = <T extends Schema>(
   schema: T & Schema
-): ExpressValidatorToSchema<T> =>
-  schema as unknown as ExpressValidatorToSchema<T>;
+): T => schema as T;
