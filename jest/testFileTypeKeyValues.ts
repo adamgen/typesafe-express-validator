@@ -1,4 +1,4 @@
-import { Project } from 'ts-morph';
+import { Project, TypeAliasDeclaration, VariableDeclaration } from 'ts-morph';
 import * as path from 'path';
 
 export const getProjectFile = (projectPathArray: string[], file: string) => {
@@ -9,22 +9,40 @@ export const getProjectFile = (projectPathArray: string[], file: string) => {
   return project.getSourceFile(file);
 };
 
-export const testFileTypeKeyValues = (
+const getIdentifierType = (
+  identifier: TypeAliasDeclaration | VariableDeclaration
+) => {
+  const identifierType = identifier.getType();
+  const identifierProperties = identifierType.getProperties();
+
+  const actual = {};
+  for (const prop of identifierProperties) {
+    actual[prop.getFullyQualifiedName()] = prop
+      .getTypeAtLocation(identifier)
+      .getText();
+  }
+
+  return actual;
+};
+
+export const getTypeAliasTypeStructure = (
   projectPathArray: string[],
   file: string,
   type: string
 ) => {
   const indexTs = getProjectFile(projectPathArray, file);
   const typeAlias = indexTs.getTypeAliasOrThrow(type);
-  const typeAliasType = typeAlias.getType();
-  const typeAliasProperties = typeAliasType.getProperties();
 
-  const actual = {};
-  for (const prop of typeAliasProperties) {
-    actual[prop.getFullyQualifiedName()] = prop
-      .getTypeAtLocation(typeAlias)
-      .getText();
-  }
+  return getIdentifierType(typeAlias);
+};
 
-  return actual;
+export const getVariableTypeStructure = (
+  projectPathArray: string[],
+  file: string,
+  type: string
+) => {
+  const indexTs = getProjectFile(projectPathArray, file);
+  const typeAlias = indexTs.getVariableDeclarationOrThrow(type);
+
+  return getIdentifierType(typeAlias);
 };

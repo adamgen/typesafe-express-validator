@@ -1,13 +1,13 @@
 import { describe, it, expect } from '@jest/globals';
 import {
-  testFileTypeKeyValues,
-  getProjectFile,
+  getTypeAliasTypeStructure,
+  getVariableTypeStructure,
 } from '../jest/testFileTypeKeyValues';
 
 describe('schema to ts', () => {
   it('shuold convert', () => {
     expect(
-      testFileTypeKeyValues(
+      getTypeAliasTypeStructure(
         [__dirname, 'tsconfig.json'],
         'index.ts',
         'myObject'
@@ -20,17 +20,12 @@ describe('schema to ts', () => {
       rsa_public: 'unknown',
     });
 
-    const indexTs = getProjectFile([__dirname, 'tsconfig.json'], 'index.ts');
-    const schemaConst = indexTs.getVariableDeclarationOrThrow('schema');
-    const schemaConstType = schemaConst.getType();
-    const schemaConstProps = schemaConstType.getProperties();
-
-    const actual = {};
-    for (const prop of schemaConstProps) {
-      actual[prop.getFullyQualifiedName()] = prop
-        .getTypeAtLocation(schemaConst)
-        .getText();
-    }
-    expect(actual).toMatchSnapshot();
+    expect(
+      getVariableTypeStructure(
+        [__dirname, 'tsconfig.json'],
+        'index.ts',
+        'schema'
+      )
+    ).toMatchSnapshot();
   });
 });
