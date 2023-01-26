@@ -7,5 +7,4 @@
 ## Open tasks
 
 1. Support all major test cases
-2. Support having intellisense on the schema
-3. Add code examples
+2. Add code examples
