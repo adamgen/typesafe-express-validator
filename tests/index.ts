@@ -1,7 +1,4 @@
-import {
-  defineSchema,
-  ExpressValidatorToSchema,
-} from '../lib/ExpressValidatorToSchema';
+import { defineSchema, Infer } from '../lib/';
 
 const schema = defineSchema({
   name: {
@@ -42,4 +39,4 @@ const schema = defineSchema({
 } as const);
 
 type mySchema = typeof schema;
-type myObject = ExpressValidatorToSchema<typeof schema>;
+type myObject = Infer<typeof schema>;
