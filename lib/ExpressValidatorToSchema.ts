@@ -41,3 +41,8 @@ type RawSchema<T extends Schema> = SchemaForStrKeysWithoutArrays<T> &
 export type ExpressValidatorToSchema<T extends Schema> = {
   [key in keyof RawSchema<T>]: RawSchema<T>[key];
 };
+
+export const defineSchema = <T extends Schema>(
+  schema: T & Schema
+): ExpressValidatorToSchema<T> =>
+  schema as unknown as ExpressValidatorToSchema<T>;

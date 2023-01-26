@@ -1,16 +1,4 @@
-import { ExpressValidatorToSchema } from '../lib/ExpressValidatorToSchema';
-import { ParamSchema, Schema } from 'express-validator';
-
-type MyKeys =
-  | 'name'
-  | 'resource_tag_ids'
-  | 'resource_tag_ids.*'
-  | 'rsa_private'
-  | 'rsa_public'
-  | 'id';
-
-const defineSchema = <T extends Schema>(schema: T & Schema): T =>
-  schema as unknown as T;
+import { defineSchema } from '../lib/ExpressValidatorToSchema';
 
 const schema = defineSchema({
   name: {
@@ -50,14 +38,4 @@ const schema = defineSchema({
   },
 } as const);
 
-type TypeofSchema = typeof schema;
-type Keys = keyof TypeofSchema;
-type Value = {
-  [key in Keys]: TypeofSchema[key];
-};
-
-// export type ExpressValidatorToSchema<T extends Schema> = {
-//   [key in keyof RawSchema<T>]: RawSchema<T>[key];
-// };
-
-type mySchema = ExpressValidatorToSchema<Value>;
+type mySchema = typeof schema;
