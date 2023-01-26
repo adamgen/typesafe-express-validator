@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`schema to ts shuold convert 1`] = `
+{
+  "__object.'resource_tag_ids.*'": "{ readonly in: "body"; readonly isInt: true; readonly optional: true; }",
+  "__object.id": "{ readonly in: "body"; readonly isInt: true; readonly exists: { readonly negated: true; }; }",
+  "__object.name": "{ readonly in: "body"; readonly isString: true; readonly isEmpty: { readonly negated: true; }; readonly optional: true; }",
+  "__object.resource_tag_ids": "{ readonly in: "body"; readonly isArray: true; readonly optional: true; }",
+  "__object.rsa_private": "{ readonly in: "body"; readonly exists: { readonly negated: true; }; }",
+  "__object.rsa_public": "{ readonly in: "body"; readonly custom: { readonly options: (rsa_public: any) => boolean; }; }",
+}
+`;
