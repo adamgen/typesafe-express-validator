@@ -14,11 +14,7 @@ export const testFileTypeKeyValues = (
   file: string,
   type: string
 ) => {
-  const project = new Project({
-    tsConfigFilePath: path.join(...projectPathArray),
-    // compilerOptions: { include: [path.join(__dirname, 'index.ts')] },
-  });
-  const indexTs = project.getSourceFile(file);
+  const indexTs = getProjectFile(projectPathArray, file);
   const typeAlias = indexTs.getTypeAliasOrThrow(type);
   const typeAliasType = typeAlias.getType();
   const typeAliasProperties = typeAliasType.getProperties();
