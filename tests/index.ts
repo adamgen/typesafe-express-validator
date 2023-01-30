@@ -1,4 +1,4 @@
-import { defineSchema, Infer } from '../lib/';
+import { defineSchema, Infer } from 'lib';
 
 const schema = defineSchema({
   name: {
@@ -30,7 +30,7 @@ const schema = defineSchema({
     isString: true,
     in: 'body',
     custom: {
-      options: (rsa_public) => true,
+      options: () => true,
     },
   },
   id: {

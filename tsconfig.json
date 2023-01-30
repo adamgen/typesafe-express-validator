@@ -2,9 +2,12 @@
   "compilerOptions": {
     "outDir": "tsout",
     "moduleResolution": "Node",
+    "esModuleInterop": true,
     "target": "es6",
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "lib": ["lib/index.ts"]
+    }
   },
   "include": [
     "tests/**/*",
