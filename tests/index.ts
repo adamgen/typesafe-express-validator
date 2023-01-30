@@ -1,42 +1,31 @@
 import { defineSchema, Infer } from 'lib';
 
 const schema = defineSchema({
-  name: {
+  string: {
     in: 'body',
     isString: true,
-    isEmpty: {
-      negated: true,
-    },
-    optional: true,
   },
-  resource_tag_ids: {
+  stringArr: {
     in: 'body',
     isArray: true,
     optional: true,
   },
-  'resource_tag_ids.*': {
+  'stringArr.*': {
+    in: 'body',
+    isString: true,
+  },
+  int: {
     in: 'body',
     isInt: true,
+  },
+  intArr: {
+    in: 'body',
+    isArray: true,
     optional: true,
   },
-  rsa_private: {
-    isString: true,
-    in: 'body',
-    exists: {
-      negated: true,
-    },
-  },
-  rsa_public: {
-    isString: true,
-    in: 'body',
-    custom: {
-      options: () => true,
-    },
-  },
-  id: {
+  'intArr.*': {
     in: 'body',
     isInt: true,
-    exists: { negated: true },
   },
 } as const);
 

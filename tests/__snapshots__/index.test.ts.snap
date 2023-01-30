@@ -2,11 +2,11 @@
 
 exports[`schema to ts shuold convert 1`] = `
 {
-  "__object.'resource_tag_ids.*'": "{ readonly in: "body"; readonly isInt: true; readonly optional: true; }",
-  "__object.id": "{ readonly in: "body"; readonly isInt: true; readonly exists: { readonly negated: true; }; }",
-  "__object.name": "{ readonly in: "body"; readonly isString: true; readonly isEmpty: { readonly negated: true; }; readonly optional: true; }",
-  "__object.resource_tag_ids": "{ readonly in: "body"; readonly isArray: true; readonly optional: true; }",
-  "__object.rsa_private": "{ readonly isString: true; readonly in: "body"; readonly exists: { readonly negated: true; }; }",
-  "__object.rsa_public": "{ readonly isString: true; readonly in: "body"; readonly custom: { readonly options: (rsa_public: any) => boolean; }; }",
+  "__object.'intArr.*'": "{ readonly in: "body"; readonly isInt: true; }",
+  "__object.'stringArr.*'": "{ readonly in: "body"; readonly isString: true; }",
+  "__object.int": "{ readonly in: "body"; readonly isInt: true; }",
+  "__object.intArr": "{ readonly in: "body"; readonly isArray: true; readonly optional: true; }",
+  "__object.string": "{ readonly in: "body"; readonly isString: true; }",
+  "__object.stringArr": "{ readonly in: "body"; readonly isArray: true; readonly optional: true; }",
 }
 `;

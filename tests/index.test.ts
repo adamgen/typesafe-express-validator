@@ -1,8 +1,5 @@
-import { describe, it, expect } from '@jest/globals';
-import {
-  getTypeAliasTypeStructure,
-  getVariableTypeStructure,
-} from '../jest/testFileTypeKeyValues';
+import {describe, expect, it} from '@jest/globals';
+import {getTypeAliasTypeStructure, getVariableTypeStructure} from '../jest/testFileTypeKeyValues';
 
 describe('schema to ts', () => {
   it('shuold convert', () => {
@@ -10,22 +7,21 @@ describe('schema to ts', () => {
       getTypeAliasTypeStructure(
         [__dirname, 'tsconfig.json'],
         'index.ts',
-        'myObject'
-      )
+        'myObject',
+      ),
     ).toEqual({
-      name: 'string',
-      id: 'number',
-      resource_tag_ids: 'number[]',
-      rsa_private: 'string',
-      rsa_public: 'string',
+      string: "string",
+      stringArr: 'string[]',
+      int: "number",
+      intArr: 'number[]',
     });
 
     expect(
       getVariableTypeStructure(
         [__dirname, 'tsconfig.json'],
         'index.ts',
-        'schema'
-      )
+        'schema',
+      ),
     ).toMatchSnapshot();
   });
 });
