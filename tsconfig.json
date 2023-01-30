@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "tsout",
+    "moduleResolution": "Node",
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {}
+  },
+  "include": [
+    "tests/**/*",
+    "lib/**/*"
+  ]
+}
