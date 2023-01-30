@@ -2,8 +2,8 @@
 
 exports[`schema to ts shuold convert 1`] = `
 {
-  "__object.'intArr.*'": "{ readonly in: "body"; readonly isInt: true; }",
-  "__object.'stringArr.*'": "{ readonly in: "body"; readonly isString: true; }",
+  "__object."intArr.*"": "{ readonly in: "body"; readonly isInt: true; }",
+  "__object."stringArr.*"": "{ readonly in: "body"; readonly isString: true; }",
   "__object.int": "{ readonly in: "body"; readonly isInt: true; }",
   "__object.intArr": "{ readonly in: "body"; readonly isArray: true; readonly optional: true; }",
   "__object.string": "{ readonly in: "body"; readonly isString: true; }",

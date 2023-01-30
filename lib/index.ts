@@ -1,4 +1,4 @@
-import { ParamSchema, Schema } from 'express-validator/check';
+import { ParamSchema, Schema } from "express-validator/check";
 
 type ArrayKeys<T extends Schema> = keyof T & `${string}.*`;
 type NonArrayKeys<T extends Schema> = Exclude<keyof T, ArrayKeys<T>>;

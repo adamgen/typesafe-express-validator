@@ -1,27 +1,30 @@
-import {describe, expect, it} from '@jest/globals';
-import {getTypeAliasTypeStructure, getVariableTypeStructure} from '../jest/testFileTypeKeyValues';
+import { describe, expect, it } from "@jest/globals";
+import {
+  getTypeAliasTypeStructure,
+  getVariableTypeStructure,
+} from "../jest/testFileTypeKeyValues";
 
-describe('schema to ts', () => {
-  it('shuold convert', () => {
+describe("schema to ts", () => {
+  it("shuold convert", () => {
     expect(
       getTypeAliasTypeStructure(
-        [__dirname, 'tsconfig.json'],
-        'index.ts',
-        'myObject',
-      ),
+        [__dirname, "tsconfig.json"],
+        "index.ts",
+        "myObject"
+      )
     ).toEqual({
       string: "string",
-      stringArr: 'string[]',
+      stringArr: "string[]",
       int: "number",
-      intArr: 'number[]',
+      intArr: "number[]",
     });
 
     expect(
       getVariableTypeStructure(
-        [__dirname, 'tsconfig.json'],
-        'index.ts',
-        'schema',
-      ),
+        [__dirname, "tsconfig.json"],
+        "index.ts",
+        "schema"
+      )
     ).toMatchSnapshot();
   });
 });

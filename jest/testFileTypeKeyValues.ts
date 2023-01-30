@@ -1,5 +1,5 @@
-import { Project, TypeAliasDeclaration, VariableDeclaration } from 'ts-morph';
-import * as path from 'path';
+import { Project, TypeAliasDeclaration, VariableDeclaration } from "ts-morph";
+import * as path from "path";
 
 export const getProjectFile = (projectPathArray: string[], file: string) => {
   const project = new Project({

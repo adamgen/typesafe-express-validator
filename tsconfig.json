@@ -9,8 +9,5 @@
       "lib": ["lib/index.ts"]
     }
   },
-  "include": [
-    "tests/**/*",
-    "lib/**/*"
-  ]
+  "include": ["tests/**/*", "lib/**/*"]
 }

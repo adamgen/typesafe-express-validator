@@ -1,30 +1,30 @@
-import { defineSchema, Infer } from 'lib';
+import { defineSchema, Infer } from "lib";
 
 const schema = defineSchema({
   string: {
-    in: 'body',
+    in: "body",
     isString: true,
   },
   stringArr: {
-    in: 'body',
+    in: "body",
     isArray: true,
     optional: true,
   },
-  'stringArr.*': {
-    in: 'body',
+  "stringArr.*": {
+    in: "body",
     isString: true,
   },
   int: {
-    in: 'body',
+    in: "body",
     isInt: true,
   },
   intArr: {
-    in: 'body',
+    in: "body",
     isArray: true,
     optional: true,
   },
-  'intArr.*': {
-    in: 'body',
+  "intArr.*": {
+    in: "body",
     isInt: true,
   },
 } as const);
