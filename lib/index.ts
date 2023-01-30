@@ -23,6 +23,22 @@ type MapSchemaParamToObjectProp<T extends ParamSchema> =
       ParamCheck<T, 'isArray'>   extends true ? Array<never>
     : ParamCheck<T, 'isInt'>     extends true ? number
     : ParamCheck<T, 'isString'>  extends true ? string
+    : ParamCheck<T, 'isAlphanumeric'>  extends true ? string
+    : ParamCheck<T, 'isAscii'>  extends true ? string
+    : ParamCheck<T, 'isBase32'>  extends true ? string
+    : ParamCheck<T, 'isBase58'>  extends true ? string
+    : ParamCheck<T, 'isBase64'>  extends true ? string
+    : ParamCheck<T, 'isBoolean'>  extends true ? boolean
+    : ParamCheck<T, 'isBtcAddress'>  extends true ? string
+    : ParamCheck<T, 'isCurrency'>  extends true ? string
+    : ParamCheck<T, 'isDataURI'>  extends true ? string
+    : ParamCheck<T, 'isDecimal'>  extends true ? number
+    : ParamCheck<T, 'isEmail'>  extends true ? string
+    : ParamCheck<T, 'isEthereumAddress'>  extends true ? string
+    : ParamCheck<T, 'isFloat'>  extends true ? number
+    : ParamCheck<T, 'isHash'>  extends true ? string
+    : ParamCheck<T, 'isHexColor'>  extends true ? string
+    : ParamCheck<T, 'isHexadecimal'>  extends true ? string
     : unknown;
 
 type SchemaForStrKeysWithoutArrays<T extends Schema> = {
