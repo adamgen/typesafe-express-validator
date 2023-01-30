@@ -1,4 +1,4 @@
-import { defineSchema, Infer } from "lib";
+import { defineSchema, Infer } from "../../lib";
 
 const schema = defineSchema({
   string: {

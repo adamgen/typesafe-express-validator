@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`schema to ts shuold convert 1`] = `
+exports[`primitive array schema should infer number and string arrays 1`] = `
 {
   "__object."intArr.*"": "{ readonly in: "body"; readonly isInt: true; }",
   "__object."stringArr.*"": "{ readonly in: "body"; readonly isString: true; }",
